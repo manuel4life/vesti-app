@@ -1,0 +1,34 @@
+export interface Rating {
+  rate: number;
+  count: number;
+}
+
+export interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+  rating?: Rating;
+}
+
+export interface ProductPageProps {
+  product: Product;
+}
+
+export interface ProductsPageProps {
+  products: Product[];
+}
+
+export interface CartItem {
+  productId: number;
+  quantity: number;
+  size?: string;
+  color?: string;
+}
+
+export interface NavbarProps {
+  cartItemCount: number;
+  onCartClick: () => void;
+}
