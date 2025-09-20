@@ -41,7 +41,16 @@ export default function HomePage() {
         id="products-section"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
-        <h2 className="text-3xl font-bold mb-8 font-poppins">All Products</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl mb-4 font-extrabold text-black font-weight-600">
+            Featured Collection
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto font-extrabold">
+            Discover our handpicked selection of premium clothing designed for
+            comfort, style, and <br />
+            quality.
+          </p>
+        </div>
 
         {loading ? (
           <p className="text-center text-lg">Loading products…</p>
