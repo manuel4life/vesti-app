@@ -52,7 +52,11 @@ We’re also planning to introduce **unique features** (like AI-powered outfit s
 - **Challenge**: Using `<img>` triggered warnings and missing `width`/`height` errors.
 - **Solution**: Switched to `next/image` with explicit width and height.
 
-- Document any other issues you fixed…
+- **Challenge**: Creating a Hero carousel
+- **Solution**: Implemented a custom React state with useState and useEffect to auto-slide images. Added left/right arrows and dots for manual control. This improved the UI and made it more interactive.
+
+- **Challenge**: ProductCard button alignment issues
+- **Solution**: Used flexbox + fixed height container for each card to make all buttons line up regardless of product description length.
 
 ## 🛠️ Project Setup
 
