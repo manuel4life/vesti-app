@@ -1,12 +1,24 @@
-import { HERO } from "../constants";
-import React from "react";
+import { HERO, FEMALE, MAIN, MALE } from "../constants";
+import React, { useState, useEffect } from "react";
 import { HeroProps } from "@/interfaces";
 
-const HeroComponent: React.FC<HeroProps> = ({}) => {
+const heroImages = [MAIN, HERO, FEMALE, MALE];
+
+const HeroComponent: React.FC<HeroProps> = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === heroImages.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section
-      className="relative w-full h-[600px] bg-cover bg-center"
-      style={{ backgroundImage: `url(${HERO})` }}
+      className="relative w-full h-[600px] bg-cover bg-center transition-all duration-700"
+      style={{ backgroundImage: `url(${heroImages[currentIndex]})` }}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-none" />
 
@@ -48,5 +60,4 @@ const HeroComponent: React.FC<HeroProps> = ({}) => {
     </section>
   );
 };
-
 export default HeroComponent;
