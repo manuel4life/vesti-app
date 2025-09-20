@@ -32,3 +32,7 @@ export interface NavbarProps {
   cartItemCount: number;
   onCartClick: () => void;
 }
+
+export interface HeroProps {
+  onShopNowClick?: () => void;
+}
