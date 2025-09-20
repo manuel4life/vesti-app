@@ -36,3 +36,11 @@ export interface NavbarProps {
 export interface HeroProps {
   onShopNowClick?: () => void;
 }
+
+export interface ProductCardProps {
+  image: string;
+  name: string;
+  price: string;
+  description: string;
+  onAddToCart: () => void;
+}

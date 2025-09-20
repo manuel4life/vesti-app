@@ -35,6 +35,25 @@ We’re also planning to introduce **unique features** (like AI-powered outfit s
 
 ---
 
+## Challenges and Solutions
+
+### 1. Background stretching under navbar
+
+- **Challenge**: The hero background image was scrolling under the navbar.
+- **Solution**: Consulted a senior developer. He showed me how to adjust the navbar width and positioning to fix the issue.
+
+### 2. File naming convention
+
+- **Challenge**: Constants and interfaces were originally `.tsx` which caused confusion.
+- **Solution**: Renamed them to `.ts` files and updated imports accordingly.
+
+### 3. Product images & Next.js Image component
+
+- **Challenge**: Using `<img>` triggered warnings and missing `width`/`height` errors.
+- **Solution**: Switched to `next/image` with explicit width and height.
+
+- Document any other issues you fixed…
+
 ## 🛠️ Project Setup
 
 1. **Clone the repository**

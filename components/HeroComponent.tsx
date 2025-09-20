@@ -1,8 +1,8 @@
-import { HERO } from "@/constants";
+import { HERO } from "../constants";
 import React from "react";
 import { HeroProps } from "@/interfaces";
 
-const HeroComponent: React.FC<HeroProps> = ({ onShopNowClick }) => {
+const HeroComponent: React.FC<HeroProps> = ({}) => {
   return (
     <section
       className="relative w-full h-[600px] bg-cover bg-center"
@@ -25,12 +25,12 @@ const HeroComponent: React.FC<HeroProps> = ({ onShopNowClick }) => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={onShopNowClick}
-              className="bg-[#01bfa5] hover:bg-[#01bfa5]/90 text-white px-8 py-3 text-lg font-semibold rounded font-poppins transition cursor-pointer"
+            <a
+              href="#products-section"
+              className="bg-[#01bfa5] hover:bg-[#01bfa5]/90 text-white px-8 py-3 text-lg font-semibold rounded font-poppins transition cursor-pointer inline-block"
             >
               Shop Now
-            </button>
+            </a>
 
             <button
               className="

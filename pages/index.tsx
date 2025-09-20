@@ -1,12 +1,85 @@
+// pages/index.tsx
+import React, { useEffect, useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
-import React from "react";
+import ProductCard from "@/components/ProductCard";
 
-const HomePage: React.FC = () => {
+import { Product } from "@/interfaces";
+
+export default function HomePage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
+        const data = await res.json();
+        setProducts(data);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = products.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
   return (
-    <main className="min-h-screen">
+    <>
       <HeroComponent />
-    </main>
-  );
-};
 
-export default HomePage;
+      <section
+        id="products-section"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      >
+        <h2 className="text-3xl font-bold mb-8 font-poppins">All Products</h2>
+
+        {loading ? (
+          <p className="text-center text-lg">Loading products…</p>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {currentProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.image}
+                  name={product.title}
+                  price={`₵${(product.price * 15).toFixed(2)}`}
+                  description={product.description.substring(0, 60) + "..."}
+                  onAddToCart={() => alert(`${product.title} added to cart!`)}
+                />
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-8 space-x-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-4 py-2 rounded ${
+                      currentPage === page
+                        ? "bg-[#01bfa5] text-white"
+                        : "bg-gray-200 hover:bg-gray-300"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                )
+              )}
+            </div>
+          </>
+        )}
+      </section>
+    </>
+  );
+}
