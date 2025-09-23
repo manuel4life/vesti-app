@@ -9,7 +9,7 @@ export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // pagination
+  // pagiation
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
 
@@ -60,6 +60,7 @@ export default function HomePage() {
               {currentProducts.map((product) => (
                 <ProductCard
                   key={product.id}
+                  id={product.id}
                   image={product.image}
                   name={product.title}
                   price={`₵${(product.price * 15).toFixed(2)}`}

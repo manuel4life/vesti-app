@@ -2,7 +2,7 @@ import { HERO, FEMALE, MAIN, MALE } from "../constants";
 import React, { useState, useEffect } from "react";
 import { HeroProps } from "@/interfaces";
 
-const heroImages = [MAIN, HERO, FEMALE, MALE];
+const heroImages = [HERO, MAIN, FEMALE, MALE];
 
 const HeroComponent: React.FC<HeroProps> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

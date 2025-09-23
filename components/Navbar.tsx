@@ -1,6 +1,7 @@
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavbarProps } from "@/interfaces";
+import Link from "next/link";
 
 function CartButton({
   count,
@@ -33,9 +34,12 @@ const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onCartClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-primary font-poppins text-stone-800">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-primary font-poppins text-stone-800"
+            >
               Vesti
-            </h1>
+            </Link>
           </div>
 
           <div className="hidden md:block relative text-black">

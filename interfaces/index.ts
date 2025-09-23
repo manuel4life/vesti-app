@@ -38,9 +38,11 @@ export interface HeroProps {
 }
 
 export interface ProductCardProps {
+  id: number | string;
   image: string;
   name: string;
-  price: string;
+  price: string | number;
   description: string;
   onAddToCart: () => void;
 }
+

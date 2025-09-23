@@ -1,7 +1,9 @@
 import React from "react";
+import Link from "next/link";
 import { ProductCardProps } from "@/interfaces";
 
 const ProductCard: React.FC<ProductCardProps> = ({
+  id,
   image,
   name,
   price,
@@ -10,9 +12,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
-      <div className="w-full h-48 flex items-center justify-center overflow-hidden">
-        <img src={image} alt={name} className="h-full object-contain" />
-      </div>
+      <Link href={`/products/${id}`} className="block w-full h-48">
+        <div className="w-full h-48 flex items-center justify-center overflow-hidden">
+          <img
+            src={image}
+            alt={name}
+            className="h-full object-contain hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </Link>
 
       <div className="mt-4 flex flex-col flex-grow">
         <h3 className="text-lg font-semibold font-poppins line-clamp-2 text-gray-600">
