@@ -2,8 +2,14 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ProductPageProps } from "@/interfaces";
+import Image from "next/image";
 
 const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+  const thumbnails = product
+    ? [product.image, product.image, product.image]
+    : [];
+  const [mainImage, setMainImage] = useState(product?.image || "");
+
   if (!product) {
     return (
       <div className="max-w-4xl mx-auto py-16 text-center">
@@ -15,9 +21,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
     );
   }
 
-  const thumbnails = [product.image, product.image, product.image];
-  const [mainImage, setMainImage] = useState(product.image);
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex gap-4">
@@ -26,11 +29,11 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
             <div
               key={index}
               onClick={() => setMainImage(thumb)}
-              className={`relative w-24 h-30 border rounded cursor-pointer hover:opacity-80 ${
+              className={`relative w-24 h-24 border rounded cursor-pointer hover:opacity-80 ${
                 thumb === mainImage ? "ring-2 ring-[#01bfa5]" : ""
               }`}
             >
-              <img
+              <Image
                 src={thumb}
                 alt={`${product.title} thumbnail ${index}`}
                 fill
@@ -40,8 +43,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           ))}
         </div>
 
-        <div className="relative flex-1 h-136 border rounded-lg">
-          <img
+        <div className="relative flex-1 h-[400px] border rounded-lg">
+          <Image
             src={mainImage}
             alt={product.title}
             fill
