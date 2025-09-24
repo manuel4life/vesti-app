@@ -33,7 +33,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
             <div
               key={index}
               onClick={() => setMainImage(thumb)}
-              className={`relative w-24 h-24 border rounded cursor-pointer hover:opacity-80 ${
+              className={`relative w-24 h-32 border rounded cursor-pointer hover:opacity-80 gap-1 mb-2 ${
                 thumb === mainImage ? "ring-2 ring-[#01bfa5]" : ""
               }`}
             >
@@ -48,7 +48,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           ))}
         </div>
 
-        <div className="relative flex-1 h-[400px] border rounded-lg">
+        <div className="relative flex-1 h-[550px] border rounded-lg">
           <Image
             src={mainImage}
             alt={product.title}
