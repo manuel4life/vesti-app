@@ -22,10 +22,11 @@ export interface ProductsPageProps {
 }
 
 export interface CartItem {
-  productId: number;
+  id: number;
+  name: string;
+  price: number;
+  image: string;
   quantity: number;
-  size?: string;
-  color?: string;
 }
 
 export interface NavbarProps {
@@ -45,4 +46,3 @@ export interface ProductCardProps {
   description: string;
   onAddToCart: () => void;
 }
-

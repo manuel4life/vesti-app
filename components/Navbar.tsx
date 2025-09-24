@@ -64,6 +64,12 @@ const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onCartClick }) => {
                 <Menu className="w-5 h-5 text-gray-700" />
               )}
             </button>
+            <Link
+              href="/cart"
+              className="text-gray-700 hover:text-[#01bfa5] font-semibold"
+            >
+              Cart
+            </Link>
           </div>
         </div>
       </div>

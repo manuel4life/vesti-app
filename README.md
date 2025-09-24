@@ -58,6 +58,25 @@ We’re also planning to introduce **unique features** (like AI-powered outfit s
 - **Challenge**: ProductCard button alignment issues
 - **Solution**: Used flexbox + fixed height container for each card to make all buttons line up regardless of product description length.
 
+# 🛍️ Product Details Page
+
+We implemented a dynamic product details page at `/products/[id]` which:
+
+- Fetches product data from [FakeStore API](https://fakestoreapi.com)
+- Displays the **main product image** plus selectable thumbnails
+- Shows **product title, category, description and price**
+- Includes an **Add to Cart** button
+
+---
+
+## 📝 Challenges We Faced
+
+### 1. Next.js `<Image />` and Remote Images
+
+Initially, we used plain `<img>` tags to display images from the API.  
+Next.js recommended switching to `<Image />` from `next/image` for better performance.  
+However, this introduced runtime errors such as:
+
 ## 🛠️ Project Setup
 
 1. **Clone the repository**

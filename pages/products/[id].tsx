@@ -40,8 +40,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
               <Image
                 src={thumb}
                 alt={`${product.title} thumbnail ${index}`}
-                width={96} // px
-                height={96} // px
+                width={96}
+                height={96}
                 className="object-contain p-1"
               />
             </div>
@@ -52,8 +52,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           <Image
             src={mainImage}
             alt={product.title}
-            width={600} // px
-            height={400} // px
+            width={600}
+            height={400}
             className="object-contain p-4"
           />
         </div>
