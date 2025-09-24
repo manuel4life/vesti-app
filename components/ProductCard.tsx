@@ -14,11 +14,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
       <Link href={`/products/${id}`} className="block w-full h-48">
-        <div className="w-full h-48 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-48 flex items-center justify-center overflow-hidden">
           <Image
             src={image}
             alt={name}
-            className="h-full object-contain hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-contain hover:scale-105 transition-transform duration-300"
           />
         </div>
       </Link>

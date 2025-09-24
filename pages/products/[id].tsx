@@ -5,11 +5,13 @@ import { ProductPageProps } from "@/interfaces";
 import Image from "next/image";
 
 const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+  // ✅ Hooks always at the top (before any returns)
   const thumbnails = product
     ? [product.image, product.image, product.image]
     : [];
   const [mainImage, setMainImage] = useState(product?.image || "");
 
+  // ✅ Early return after hooks
   if (!product) {
     return (
       <div className="max-w-4xl mx-auto py-16 text-center">
@@ -23,7 +25,9 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* LEFT SIDE: thumbnails + main image */}
       <div className="flex gap-4">
+        {/* Thumbnails */}
         <div className="flex flex-col gap-3">
           {thumbnails.map((thumb, index) => (
             <div
@@ -36,7 +40,8 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
               <Image
                 src={thumb}
                 alt={`${product.title} thumbnail ${index}`}
-                fill
+                width={96} // px
+                height={96} // px
                 className="object-contain p-1"
               />
             </div>
@@ -47,15 +52,15 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           <Image
             src={mainImage}
             alt={product.title}
-            fill
+            width={600} // px
+            height={400} // px
             className="object-contain p-4"
           />
         </div>
       </div>
 
-      {/* RIGHT SIDE: product details */}
       <div>
-        <h1 className="text-3xl font-bold mb-4 text-black font-extrabold">
+        <h1 className="text-3xl mb-4 text-black font-extrabold">
           {product.title}
         </h1>
         <p className="text-gray-900 mb-4 capitalize">{product.category}</p>
@@ -83,7 +88,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
     const product = await res.json();
     return { props: { product } };
-  } catch (error) {
+  } catch {
     return { props: { product: null } };
   }
 };
