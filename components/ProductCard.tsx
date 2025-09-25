@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ProductCardProps } from "@/interfaces";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 const ProductCard: React.FC<ProductCardProps> = ({
   id,
@@ -9,8 +10,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
   name,
   price,
   description,
-  onAddToCart,
 }) => {
+  const { cartItems, addToCart } = useCart();
+
+  const isInCart = cartItems.some((i) => i.id === id);
+
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
       <Link href={`/products/${id}`} className="block w-full h-48">
@@ -36,10 +40,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       <button
-        onClick={onAddToCart}
-        className="mt-4 w-full bg-[#01bfa5] hover:bg-[#01bfa5]/90 text-white px-4 py-2 rounded font-poppins transition"
+        onClick={() =>
+          addToCart({
+            id,
+            name,
+            price: parseFloat(String(price).replace("₵", "")),
+            image,
+            quantity: 1,
+          })
+        }
+        disabled={isInCart}
+        className={`mt-4 w-full px-4 py-2 rounded font-poppins transition ${
+          isInCart
+            ? "bg-gray-400 cursor-not-allowed text-white"
+            : "bg-[#01bfa5] hover:bg-[#01bfa5]/90 text-white"
+        }`}
       >
-        Add to Cart
+        {isInCart ? "Added" : "Add to Cart"}
       </button>
     </div>
   );

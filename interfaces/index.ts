@@ -22,7 +22,7 @@ export interface ProductsPageProps {
 }
 
 export interface CartItem {
-  id: number;
+  id: string | number;
   name: string;
   price: number;
   image: string;
@@ -45,4 +45,15 @@ export interface ProductCardProps {
   price: string | number;
   description: string;
   onAddToCart: () => void;
+}
+
+export interface CartContextType {
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  clearCart: () => void;
+  cartCount: number;
+  increaseQuantity: (id: number) => void;
+  decreaseQuantity: (id: number) => void;
+  removeFromCart: (id: number) => void;
+
 }

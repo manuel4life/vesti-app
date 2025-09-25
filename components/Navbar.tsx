@@ -1,46 +1,37 @@
+// components/Navbar.tsx
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { NavbarProps } from "@/interfaces";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
-function CartButton({
-  count,
-  onClick,
-}: {
-  count: number;
-  onClick: () => void;
-}) {
+function CartButton({ count }: { count: number }) {
   return (
-    <button
-      onClick={onClick}
+    <Link
+      href="/cart"
       aria-label="View shopping cart"
-      className="relative p-2 hover:bg-gray-100 rounded-full transition"
+      className="relative p-2 hover:bg-gray-200 rounded-full transition "
     >
-      <ShoppingCart className="w-5 h-5 text-gray-700" />
+      <ShoppingCart className="w-6 h-6 text-gray-700" />
       {count > 0 && (
-        <span className="absolute -top-1.5 -right-1.5 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+        <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
           {count}
         </span>
       )}
-    </button>
+    </Link>
   );
 }
 
-const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onCartClick }) => {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="text-2xl font-bold text-primary font-poppins text-stone-800"
-            >
-              Vesti
-            </Link>
-          </div>
+          <Link href="/" className="text-2xl font-bold text-stone-800">
+            Vesti
+          </Link>
 
           <div className="hidden md:block relative text-black">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -51,11 +42,13 @@ const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onCartClick }) => {
             />
           </div>
 
-          <div className="flex items-center space-x-3">
-            <CartButton count={cartItemCount} onClick={onCartClick} />
+          <div className="flex items-center space-x-3 ">
+            <CartButton count={cartCount} />
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label="T
+              oggle menu"
               className="p-2 rounded-full hover:bg-gray-100 transition md:hidden"
             >
               {isMenuOpen ? (
@@ -64,17 +57,9 @@ const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onCartClick }) => {
                 <Menu className="w-5 h-5 text-gray-700" />
               )}
             </button>
-            <Link
-              href="/cart"
-              className="text-gray-700 hover:text-[#01bfa5] font-semibold"
-            >
-              Cart
-            </Link>
           </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

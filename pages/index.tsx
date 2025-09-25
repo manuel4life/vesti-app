@@ -1,6 +1,7 @@
-// pages/index.tsx
 import React, { useEffect, useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
+import { useCart } from "@/context/CartContext";
+
 import ProductCard from "@/components/ProductCard";
 
 import { Product } from "@/interfaces";
@@ -8,6 +9,8 @@ import { Product } from "@/interfaces";
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const { addToCart } = useCart();
 
   // pagiation
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,7 +68,15 @@ export default function HomePage() {
                   name={product.title}
                   price={`₵${(product.price * 15).toFixed(2)}`}
                   description={product.description.substring(0, 60) + "..."}
-                  onAddToCart={() => alert(`${product.title} added to cart!`)}
+                  onAddToCart={() =>
+                    addToCart({
+                      id: product.id,
+                      name: product.title,
+                      price: product.price,
+                      image: product.image,
+                      quantity: 1,
+                    })
+                  }
                 />
               ))}
             </div>
