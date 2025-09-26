@@ -1,5 +1,4 @@
-// components/Navbar.tsx
-import { Search, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, UserPlus, LogIn } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
@@ -9,7 +8,7 @@ function CartButton({ count }: { count: number }) {
     <Link
       href="/cart"
       aria-label="View shopping cart"
-      className="relative p-2 hover:bg-gray-200 rounded-full transition "
+      className="relative p-2 hover:bg-gray-200 rounded-full transition"
     >
       <ShoppingCart className="w-6 h-6 text-gray-700" />
       {count > 0 && (
@@ -29,10 +28,12 @@ export default function Navbar() {
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-stone-800">
             Vesti
           </Link>
 
+          {/* Search */}
           <div className="hidden md:block relative text-black">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
@@ -42,13 +43,32 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="flex items-center space-x-3 ">
+          {/* Right Side */}
+          <div className="flex items-center space-x-4">
             <CartButton count={cartCount} />
 
+            {/* Login link */}
+            <Link
+              href="/login"
+              className="flex items-center space-x-1 text-2xl font-extrabold hover:text-accent transition text-[#04d9bd]"
+            >
+              <LogIn className="w-5 h-5" />
+              <span className="text-sm font-medium">Login</span>
+            </Link>
+
+            {/* Signup link */}
+            <Link
+              href="/signup"
+              className="flex items-center space-x-1 text-gray-700 hover:text-accent transition"
+            >
+              <UserPlus className="w-5 h-5" />
+              <span className="text-sm font-medium">Signup</span>
+            </Link>
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="T
-              oggle menu"
+              aria-label="Toggle menu"
               className="p-2 rounded-full hover:bg-gray-100 transition md:hidden"
             >
               {isMenuOpen ? (

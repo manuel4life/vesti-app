@@ -69,13 +69,19 @@ We implemented a dynamic product details page at `/products/[id]` which:
 
 ---
 
-## 📝 Challenges We Faced
+## 📝 Challenges i Faced
 
-### 1. Next.js `<Image />` and Remote Images
+### 4. Next.js `<Image />` and Remote Images
 
-Initially, we used plain `<img>` tags to display images from the API.  
+Initially, i used plain `<img>` tags to display images from the API.  
 Next.js recommended switching to `<Image />` from `next/image` for better performance.  
 However, this introduced runtime errors such as:
+
+- **Cart Page** where users can:
+  - View items added to the cart
+  - Increase or decrease item quantity
+  - Remove items from the cart
+  - See total price calculated dynamically
 
 ## 🛠️ Project Setup
 
