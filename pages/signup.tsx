@@ -15,7 +15,7 @@ export default function SignupPage() {
             </label>
             <input
               type="text"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full p-2  border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="Your Name"
             />
           </div>
@@ -26,7 +26,7 @@ export default function SignupPage() {
             </label>
             <input
               type="email"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full p-2  border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="you@example.com"
             />
           </div>
@@ -37,7 +37,7 @@ export default function SignupPage() {
             </label>
             <input
               type="tel"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full p-2  border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="0245679093"
             />
           </div>
@@ -47,7 +47,7 @@ export default function SignupPage() {
             </label>
             <input
               type="password"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full p-2  border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="••••••••"
             />
           </div>

@@ -8,14 +8,14 @@ export default function LoginPage() {
           Login to Vesti
         </h1>
 
-        <form className="space-y-4 text-gray-700">
+        <form className="space-y-4 text-gray-700 ">
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Email
             </label>
             <input
               type="email"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full border-gray-300 p-2 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="you@example.com"
             />
           </div>
@@ -26,7 +26,7 @@ export default function LoginPage() {
             </label>
             <input
               type="password"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
+              className="mt-1 block w-full border-gray-300 p-2 rounded-md shadow-sm focus:ring-[#01bfa5] focus:border-[#01bfa5]"
               placeholder="••••••••"
             />
           </div>
