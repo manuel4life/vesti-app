@@ -78,10 +78,19 @@ Next.js recommended switching to `<Image />` from `next/image` for better perfor
 However, this introduced runtime errors such as:
 
 - **Cart Page** where users can:
+
   - View items added to the cart
   - Increase or decrease item quantity
   - Remove items from the cart
   - See total price calculated dynamically
+
+  ### Checkout Page
+
+- Users can review their cart, adjust quantities, or remove items.
+- Displays subtotal, shipping, and total.
+- Simple checkout form (name, email, phone, address).
+- “Place Order” button clears the cart and shows confirmation (placeholder for backend integration).
+- Page: `/checkout`.
 
 ## 🛠️ Project Setup
 

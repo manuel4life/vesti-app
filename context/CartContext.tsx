@@ -35,6 +35,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems((prev) => prev.filter((i) => i.id !== id));
   };
 
+  const updateQuantity = (id: number, quantity: number) => {
+    setCartItems((prev) =>
+      prev.map((i) =>
+        i.id === id ? { ...i, quantity: quantity < 1 ? 1 : quantity } : i
+      )
+    );
+  };
   const clearCart = () => setCartItems([]);
   const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
 
@@ -48,6 +55,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         increaseQuantity,
         decreaseQuantity,
         removeFromCart,
+        updateQuantity,
       }}
     >
       {children}

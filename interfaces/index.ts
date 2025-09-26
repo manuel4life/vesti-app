@@ -22,7 +22,7 @@ export interface ProductsPageProps {
 }
 
 export interface CartItem {
-  id: string | number;
+  id: number;
   name: string;
   price: number;
   image: string;
@@ -39,7 +39,7 @@ export interface HeroProps {
 }
 
 export interface ProductCardProps {
-  id: number | string;
+  id: number
   image: string;
   name: string;
   price: string | number;
@@ -55,5 +55,7 @@ export interface CartContextType {
   increaseQuantity: (id: number) => void;
   decreaseQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
+
 
 }

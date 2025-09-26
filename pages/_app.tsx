@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <CartProvider>
       <Layout>
         <Component {...pageProps} />
-        <Footer />
       </Layout>
+      <Footer />
     </CartProvider>
   );
 }
