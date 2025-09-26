@@ -90,7 +90,7 @@ export default function HomePage() {
                     className={`px-4 py-2 rounded ${
                       currentPage === page
                         ? "bg-[#01bfa5] text-white"
-                        : "bg-gray-200 hover:bg-gray-300"
+                        : "bg-black hover:bg-gray-300"
                     }`}
                   >
                     {page}
