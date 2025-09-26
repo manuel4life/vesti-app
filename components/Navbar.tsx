@@ -33,7 +33,6 @@ export default function Navbar() {
             Vesti
           </Link>
 
-          {/* Search */}
           <div className="hidden md:block relative text-black">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
@@ -43,11 +42,9 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Right Side */}
           <div className="flex items-center space-x-4">
             <CartButton count={cartCount} />
 
-            {/* Login link */}
             <Link
               href="/login"
               className="flex items-center space-x-1 text-2xl font-extrabold hover:text-accent transition text-[#04d9bd]"
@@ -56,7 +53,6 @@ export default function Navbar() {
               <span className="text-sm font-medium">Login</span>
             </Link>
 
-            {/* Signup link */}
             <Link
               href="/signup"
               className="flex items-center space-x-1 text-gray-700 hover:text-accent transition"
@@ -65,7 +61,6 @@ export default function Navbar() {
               <span className="text-sm font-medium">Signup</span>
             </Link>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
