@@ -11,13 +11,13 @@ export default function CartPage() {
       <div className="max-w-6xl mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold mb-6 text-gray-700">Cart</h1>
 
-        <div className=" text-center">
+        <div className=" text-center h-96 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-extrabold text-gray-700">
             Your cart is empty
           </h1>
           <Link
             href="/"
-            className="inline-block mt-4 bg-[#01bfa5] text-white px-6 py-3 rounded font-bold hover:bg-[#01bfa5]/90"
+            className="inline-block w-60 mt-4 bg-[#01bfa5] text-white px-6 py-3 rounded font-bold hover:bg-[#01bfa5]/90"
           >
             Go back to Home
           </Link>

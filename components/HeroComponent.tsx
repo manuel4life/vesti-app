@@ -17,7 +17,7 @@ const HeroComponent: React.FC<HeroProps> = () => {
   }, []);
   return (
     <section
-      className="relative w-full h-[600px] bg-cover bg-center transition-all duration-700"
+      className="relative w-full  bg-cover bg-center transition-all duration-700"
       style={{ backgroundImage: `url(${heroImages[currentIndex]})` }}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-none" />

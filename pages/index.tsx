@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
 
         {loading ? (
-          <p className="text-center text-lg">Loading products…</p>
+          <p className="text-center text-gray-400 text-lg">Loading products…</p>
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -90,7 +90,7 @@ export default function HomePage() {
                     className={`px-4 py-2 rounded ${
                       currentPage === page
                         ? "bg-[#01bfa5] text-white"
-                        : "bg-black hover:bg-gray-300"
+                        : "bg-gray-300 text-gray-400 hover:bg-gray-300"
                     }`}
                   >
                     {page}
